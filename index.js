@@ -22,7 +22,7 @@ dbcredentials = {
   host: "localhost",
   user: "silas",
   password: "8032",
-  database: "waondo",
+  database: "livelihoodzones",
   insecureAuth: true
 };
 
@@ -47,14 +47,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(require("./controllers/Controller"));
+app.use(require("./controllers/user_management/UsersController"));
 
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
 
-const server = app.listen(6000, () => {
+const server = app.listen(5000, () => {
   const host = server.address().address;
   const port = server.address().port;
 

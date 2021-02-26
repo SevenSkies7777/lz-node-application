@@ -6,7 +6,7 @@ const con = mysql.createPool({
     host: "localhost",
     user: "silas",
     password: "8032",
-    database: "awsha",
+    database: "livelihoodzones",
     insecureAuth: true
 });
 setInterval(() => {
