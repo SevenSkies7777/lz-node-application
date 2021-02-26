@@ -16,5 +16,13 @@ router.post('/fetch_a_user_roles',urlencodedParser, async (request,response) => 
 });
 
 
+router.post('/fetch_a_user_specific_role',urlencodedParser, async (request,response) => {
+    let userId = request.body.userId;
+    let roleId = request.body.roleId;
+    let result = await UserRepository.fetchAUserSpecificRoleByUserIdAndRoleId(userId,roleId);
+    response.send(result[0]);
+});
+
+
 
 module.exports = router;

@@ -22,4 +22,21 @@ module.exports = class Repository {
         });
     }
 
+
+    static fetchAUserSpecificRoleByUserIdAndRoleId(userId,roleId) {
+        return new Promise(function(resolve, reject) {
+            con.query(
+                "SELECT * FROM users INNER JOIN user_roles ur on users.UserId = ur.UserId INNER JOIN roles r on ur.RoleId = r.RoleId WHERE Users.UserId = " +userId+ " AND ur.RoleId = " +
+            mysql.escape(roleId),
+                function(err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(result);
+                    }
+                }
+            );
+        });
+    }
+
 };

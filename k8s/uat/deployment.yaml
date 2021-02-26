@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: uat
-  name: waondo-node-backend
+  name: lz-node-application
   labels:
-    name: waondo-node-backend
-    app: waondo-node-backend
+    name: lz-node-application
+    app: lz-node-application
 spec:
   selector:
     matchLabels:
-      app: waondo-node-backend
+      app: lz-node-application
   template:
     metadata:
-      name: waondo-node-backend
+      name: lz-node-application
       labels:
-        name: waondo-node-backend
-        app: waondo-node-backend
+        name: lz-node-application
+        app: lz-node-application
     spec:
       containers:
-        - name: waondo-node-backend
+        - name: lz-node-application
           imagePullPolicy: Always
-          image: silasonyango93/waondo-node-backend:latest
+          image: sevenskies/lz-node-application:latest
           ports:
             - containerPort: 8080
           volumeMounts:

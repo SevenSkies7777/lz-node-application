@@ -2,16 +2,16 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   namespace: uat
-  name: waondo-backend
+  name: lz-node-application
   annotations:
     kubernetes.io/ingress.class: nginx
 #    certmanager.k8s.io/cluster-issuer: "letsencrypt-staging"
 spec:
   rules:
-    - host: backend.waondo.agweria.com
+    - host: node.livelihoodzone.xyz
       http:
         paths:
           - path: /
             backend:
-              serviceName: waondo-backend
+              serviceName: lz-node-application
               servicePort: 8080

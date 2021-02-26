@@ -19,12 +19,20 @@ var port = process.env.PORT || 5000;
 
 app.use(cors());
 dbcredentials = {
-  host: "localhost",
-  user: "silas",
-  password: "8032",
+  host: "mysql-db",
+  user: "sevenskies",
+  password: "sevenskies",
   database: "livelihoodzones",
   insecureAuth: true
 };
+
+// dbcredentials = {
+//   host: "localhost",
+//   user: "silas",
+//   password: "8032",
+//   database: "livelihoodzones",
+//   insecureAuth: true
+// };
 
 app.use(express.static("public"));
 
@@ -54,7 +62,7 @@ app.use(function(err, req, res, next) {
   res.status(500).send("Something broke!");
 });
 
-const server = app.listen(5000, () => {
+const server = app.listen(8080, () => {
   const host = server.address().address;
   const port = server.address().port;
 
