@@ -8,6 +8,10 @@ router.use(function timeLog(req, res, next) {
     next();
 });
 
+router.post('/fetch_all_users',urlencodedParser, async (request,response) => {
+    let result = await UserRepository.fetchAllUsers();
+    response.send(result);
+});
 
 router.post('/fetch_a_user_roles',urlencodedParser, async (request,response) => {
     let userId = request.body.userId;
