@@ -22,4 +22,21 @@ module.exports = class LivelihoodZonesRepository {
         });
     }
 
+
+    static fetchACountyLivelihoodZones(countyId) {
+        return new Promise(function (resolve, reject) {
+            con.query(
+                "SELECT * FROM counties INNER JOIN county_livelihoodzone_assignment ON counties.CountyId = county_livelihoodzone_assignment.CountyId INNER JOIN livelihood_zones ON county_livelihoodzone_assignment.LivelihoodZoneId = livelihood_zones.LivelihoodZoneId WHERE counties.CountyId = " +
+                mysql.escape(countyId),
+                function (err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(result);
+                    }
+                }
+            );
+        });
+    }
+
 };

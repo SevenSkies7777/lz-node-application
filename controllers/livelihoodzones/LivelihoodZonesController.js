@@ -14,6 +14,12 @@ router.post('/fetch_a_county_sublocations_livelihoodzone_assignments',urlencoded
     response.send(result);
 });
 
+router.post('/fetch_a_county_livelihoodzones',urlencodedParser, async (request,response) => {
+    let countyId = request.body.countyId;
+    let result = await LivelihoodZonesRepository.fetchACountyLivelihoodZones(countyId);
+    response.send(result);
+});
+
 
 
 module.exports = router;
